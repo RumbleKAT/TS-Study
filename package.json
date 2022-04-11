@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "typescript": "^4.6.3"
+  },
+  "devDependencies": {
+    "tslint-config-prettier": "^1.18.0"
+  }
+}
