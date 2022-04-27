@@ -1,16 +1,12 @@
-abstract class AbstractPerson5{
-    abstract name : string
-    constructor (public age? : number){}
-}
+type ResultType = [boolean, string];
 
-class Person5 extends AbstractPerson5{
-    constructor(public name: string, age? : number){
-        super(age);
-    }
-}
+const doSomething = (): ResultType =>{
+    try{
+        throw new Error(`Some error occurs....`);
+    }catch(e:any){
+        return [false, e.message]
+    };
+};
 
-let jack5: Person5 = new Person5('song',10);
-console.log(jack5);
-console.log(jack5.age);
-console.log(jack5.name);
-
+const [result, errorMessage] = doSomething();
+console.log(result, errorMessage);
