@@ -1,0 +1,31 @@
+doctype
+html(lang='en')
+    head 
+        title Pug 
+    script(type='text/javascript').
+        foo = true;
+        var bar = function (param) {
+            console.log(param)
+        };
+        if (foo) {
+            bar(1 + 5)
+        }
+    style(type='text/css').
+        .user {
+            background-color : #efefef;
+        }
+    body 
+        h1 Pug - node template engin 
+        #container.col 
+          p You are amazing
+          div thank you 
+                div thank you2
+        .user 
+            p
+              | Pug is a terse and simple
+              | templating language with a
+              | strong focus on performance
+              | and powerful features.
+
+
+        
