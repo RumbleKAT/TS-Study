@@ -1,5 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { Chart } from 'chart.js';
+import { CovidSummaryResponse } from './covid/index';
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
@@ -46,7 +47,8 @@ let isRecoveredLoading = false;
 /**
   * @returns {Promise<CovidSummary>}
 **/
-function fetchCovidSummary() {
+
+function fetchCovidSummary(): Promise<AxiosResponse<CovidSummaryResponse>> {
   const url = 'https://api.covid19api.com/summary';
   return axios.get(url);
 }
@@ -182,7 +184,7 @@ async function setupData() {
 }
 
 function renderChart(data:any, labels:any) {
-  var ctx = $('#lineChart').getContext('2d');
+  var ctx = ($('#lineChart') as HTMLCanvasElement).getContext('2d');
   Chart.defaults.color = '#f5eaea';
   Chart.defaults.font.family = 'Exo 2';
   new Chart(ctx, {
